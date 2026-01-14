@@ -1,0 +1,10 @@
+services:
+  server-restarter:
+    build: .
+    container_name: server-restarter
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      # This gives the container access to the host Docker Daemon
+      - /var/run/docker.sock:/var/run/docker.sock
